@@ -1,8 +1,9 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage( 'STAGE 1' ) {
+            agent { label 'master' }    
             steps {
                 echo 'excecuting script files'
                 git 'https://github.com/bhanurekha09/pipeline-exa.git'
@@ -13,6 +14,7 @@ pipeline {
         
         stage( 'STAGE 2' ) {
             steps {
+                agent { label 'master' }
                 echo 'excecuting first files'
                 sh 'chmod +x one.sh'
                 sh './one.sh'
@@ -23,6 +25,7 @@ pipeline {
     
      stage( 'STAGE 3' ) {
             steps {
+                agent { label 'master' }
                 echo 'excecuting second files'
                 sh 'chmod +x second.sh'
                 sh './second.sh'
@@ -31,6 +34,7 @@ pipeline {
     
      stage( 'STAGE 4' ) {
             steps {
+                agent { label 'trigger-deploy' }
                 echo 'excecuting third files'
                 sh 'chmod +x third.sh'
                 sh './third.sh'
@@ -40,6 +44,7 @@ pipeline {
     
      stage( 'STAGE 5' ) {
             steps {
+                agent { label 'trigger-deploy' }
                 echo 'excecuting fourth files'
                   sh 'chmod +x fourth.sh'
                 sh './fourth.sh'
