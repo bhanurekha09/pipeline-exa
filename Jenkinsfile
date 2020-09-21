@@ -14,7 +14,7 @@ pipeline {
         stage( 'STAGE 2' ) {
             steps {
                 echo 'excecuting first files'
-                sh 'first.sh'
+                sh 'one.sh'
                 
             }
         }
