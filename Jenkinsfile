@@ -28,7 +28,7 @@ pipeline {
             }
         }
     
-     stage( 'STAGE 3' ) {
+     stage( 'STAGE 4' ) {
             steps {
                 echo 'excecuting third files'
                 sh 'third.sh'
@@ -36,7 +36,7 @@ pipeline {
             }
         }
     
-     stage( 'STAGE 4' ) {
+     stage( 'STAGE 5' ) {
             steps {
                 echo 'excecuting fourth files'
                 sh 'fourth.sh'
@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-     stage( 'STAGE 5' ) {
+     stage( 'STAGE 6' ) {
             steps {
                 echo 'excecuting fifth files'
                 sh 'fifth.sh'
