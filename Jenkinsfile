@@ -14,6 +14,7 @@ pipeline {
         stage( 'STAGE 2' ) {
             steps {
                 echo 'excecuting first files'
+                sh 'chmod +x one.sh'
                 sh './one.sh'
                 
             }
@@ -23,15 +24,16 @@ pipeline {
      stage( 'STAGE 3' ) {
             steps {
                 echo 'excecuting second files'
-                sh 'second.sh'
-                
+                sh 'chmod +x second.sh'
+                sh './second.sh'
             }
         }
     
      stage( 'STAGE 4' ) {
             steps {
                 echo 'excecuting third files'
-                sh 'third.sh'
+                sh 'chmod +x third.sh'
+                sh './third.sh'
                 
             }
         }
@@ -39,7 +41,8 @@ pipeline {
      stage( 'STAGE 5' ) {
             steps {
                 echo 'excecuting fourth files'
-                sh 'fourth.sh'
+                  sh 'chmod +x fourth.sh'
+                sh './fourth.sh'
                 
             }
         }
@@ -47,7 +50,8 @@ pipeline {
      stage( 'STAGE 6' ) {
             steps {
                 echo 'excecuting fifth files'
-                sh 'fifth.sh'
+                  sh 'chmod +x fifth.sh'
+                sh './fifth.sh'
                 
             }
         }
