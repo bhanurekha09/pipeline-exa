@@ -58,7 +58,8 @@ pipeline {
         }
 
      stage( 'STAGE 6' ) {
-            steps {
+          agent { label 'trigger-deploy' }
+         steps {
                 echo 'excecuting fifth files'
                   sh 'chmod +x fifth.sh'
                 sh './fifth.sh'
