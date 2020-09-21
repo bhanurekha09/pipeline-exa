@@ -14,8 +14,9 @@ pipeline {
         
         
         stage( 'STAGE 2' ) {
+            agent { label 'master' }
+            
             steps {
-                agent { label 'jenkins-deploy' }
                 echo 'excecuting first files'
                 sh 'chmod +x one.sh'
                 sh './one.sh'
@@ -25,17 +26,19 @@ pipeline {
     
     
      stage( 'STAGE 3' ) {
-            steps {
-                agent { label 'master' }
-                echo 'excecuting second files'
+         agent { label 'master' }   
+         steps {
+              
+                echo 'excecuting sec agond files'
                 sh 'chmod +x second.sh'
                 sh './second.sh'
             }
         }
     
      stage( 'STAGE 4' ) {
+           agent { label 'trigger-deploy' }
             steps {
-                agent { label 'trigger-deploy' }
+               
                 echo 'excecuting third files'
                 sh 'chmod +x third.sh'
                 sh './third.sh'
@@ -44,8 +47,9 @@ pipeline {
         }
     
      stage( 'STAGE 5' ) {
+         agent { label 'trigger-deploy' }
             steps {
-                agent { label 'trigger-deploy' }
+                
                 echo 'excecuting fourth files'
                   sh 'chmod +x fourth.sh'
                 sh './fourth.sh'
