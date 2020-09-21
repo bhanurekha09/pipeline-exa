@@ -12,6 +12,8 @@ pipeline {
             }
         }
         
+        stage( 'RUN parallel ' ){
+            parallel {
         
         stage( 'STAGE 2' ) {
             agent { label 'master' }
@@ -34,7 +36,12 @@ pipeline {
                 sh './second.sh'
             }
         }
-    
+            }
+        }
+        
+        stage ( 'RUN parallely ' ){
+            parallel {
+                
      stage( 'STAGE 4' ) {
            agent { label 'trigger-deploy' }
             steps {
@@ -56,7 +63,8 @@ pipeline {
                 
             }
         }
-
+            }
+        }
      stage( 'STAGE 6' ) {
           agent { label 'trigger-deploy' }
          steps {
