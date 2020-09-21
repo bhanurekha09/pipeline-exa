@@ -2,10 +2,11 @@ pipeline {
     agent none
 
     stages {
-         agent { label 'master' }  
+         
         stage( 'STAGE 1' ) {
                
             steps {
+                agent { label 'master' }  
                 echo 'excecuting script files'
                 git 'https://github.com/bhanurekha09/pipeline-exa.git'
                 
