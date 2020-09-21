@@ -14,7 +14,7 @@ pipeline {
         
         stage( 'STAGE 2' ) {
             steps {
-                agent { label 'master' }
+                agent { label 'jenkins-deploy' }
                 echo 'excecuting first files'
                 sh 'chmod +x one.sh'
                 sh './one.sh'
